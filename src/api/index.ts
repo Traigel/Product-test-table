@@ -19,5 +19,5 @@ export const productsAPI = {
 // types
 export type RootDocumentsType = [string, StatusType, number, number, number, string, string, string ];
 
-type StatusType = 'active' | 'archive'
+export type StatusType = 'active' | 'archive'
 

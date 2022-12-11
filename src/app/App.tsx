@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
+import React from 'react';
+import styles from './App..module.scss'
 import {productsAPI} from '../api';
+import {useAppDispatch} from '../common/hooks/useAppDispatch';
+import {getDocuments} from '../features/DataTable/dataTable-actions';
 
 function App() {
 
-    const onClickHandler = async () => {
-        const qwe = await productsAPI.setCancel([1,2,3])
-        console.log(qwe.data.messages)
+    const dispatch = useAppDispatch()
+
+    const onClickHandler = () => {
+        dispatch(getDocuments())
     }
 
   return (
-    <div className="App">
+    <div className={styles.app}>
         <button onClick={onClickHandler}>qweqwe</button>
       app
     </div>

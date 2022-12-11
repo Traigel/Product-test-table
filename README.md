@@ -5,7 +5,10 @@
 ## Technologies / Libraries:
 - React
 - TypeScript
+- React-Redux
+- Redux-Toolkit
 - Axios
+- SASS
 
 ---
 
