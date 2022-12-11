@@ -5,6 +5,7 @@
 ## Technologies / Libraries:
 - React
 - TypeScript
+- Axios
 
 ---
 
