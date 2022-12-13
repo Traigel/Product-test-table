@@ -44,6 +44,7 @@ export const DataTableHeader = ({cellsHeaders, order, orderBy, setOrder, setOrde
             return (
               <TableCell
                 key={index}
+                align={'right'}
                 sortDirection={orderBy === el ? order : false}
                 sx={{fontWeight: 600, fontSize: 18}}
               >

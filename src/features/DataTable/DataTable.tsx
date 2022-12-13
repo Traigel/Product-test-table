@@ -15,6 +15,9 @@ import Box from '@mui/material/Box';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import Dialog from '@mui/material/Dialog';
 import {CancelItemModal} from './CancelItemModal/CancelItemModal';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
 
 export const DataTable = () => {
 
@@ -65,8 +68,19 @@ export const DataTable = () => {
             setOrderBy={setOrderBy}
           />
 
-          {dataSearch && dataSearch.map((el) => <DataTableBody key={el.id} dataRow={el}/>)}
-
+          <TableBody>
+            {dataSearch?.length ?
+              dataSearch.map((el) => <DataTableBody key={el.id} dataRow={el}/>)
+              :
+              <TableRow>
+                <TableCell colSpan={9}>
+                  <Typography width={'100%'} fontWeight={600} fontSize={25} textAlign={'center'}>
+                    Nothing found according to your request
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            }
+          </TableBody>
         </Table>
       </TableContainer>
 

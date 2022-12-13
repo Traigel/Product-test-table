@@ -4,7 +4,6 @@ import {DataType, setCheckedItem} from "../dataTable-reducer";
 import Checkbox from '@mui/material/Checkbox';
 import React, {ChangeEvent} from 'react';
 import {useAppDispatch} from '../../../common/hooks';
-import TableBody from "@mui/material/TableBody";
 
 type DataTableRowPropsType = {
   dataRow: DataType
@@ -18,24 +17,21 @@ export const DataTableBody = ({dataRow}: DataTableRowPropsType) => {
     dispatch(setCheckedItem({id: dataRow.id, checked: e.currentTarget.checked}))
 
   return (
-    <TableBody>
-      <TableRow>
-        <TableCell>
-          <Checkbox
-            checked={dataRow.checked}
-            onChange={onChangeTableCellHandler}
-          />
-        </TableCell>
-        <TableCell component="th" scope="row">{dataRow.name}</TableCell>
-        <TableCell>{dataRow.status}</TableCell>
-        <TableCell>{dataRow.volume}</TableCell>
-        <TableCell>{dataRow.sum}</TableCell>
-        <TableCell>{dataRow.qty}</TableCell>
-        <TableCell>{dataRow.deliveryDate}</TableCell>
-        <TableCell>{dataRow.currency}</TableCell>
-        <TableCell>{`${dataRow.total} ${dataRow.currency}`}</TableCell>
-      </TableRow>
-    </TableBody>
-
+    <TableRow>
+      <TableCell>
+        <Checkbox
+          checked={dataRow.checked}
+          onChange={onChangeTableCellHandler}
+        />
+      </TableCell>
+      <TableCell align={'right'}>{dataRow.name}</TableCell>
+      <TableCell align={'right'}>{dataRow.status}</TableCell>
+      <TableCell align={'right'}>{dataRow.volume}</TableCell>
+      <TableCell align={'right'}>{dataRow.sum}</TableCell>
+      <TableCell align={'right'}>{dataRow.qty}</TableCell>
+      <TableCell align={'right'}>{dataRow.deliveryDate}</TableCell>
+      <TableCell align={'right'}>{dataRow.currency}</TableCell>
+      <TableCell align={'right'}>{`${dataRow.total} ${dataRow.currency}`}</TableCell>
+    </TableRow>
   )
 }

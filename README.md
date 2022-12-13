@@ -9,7 +9,6 @@
 - Redux-Toolkit
 - Axios
 - Material-UI
-- SASS
 
 ---
 
