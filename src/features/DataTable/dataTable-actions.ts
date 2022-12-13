@@ -13,3 +13,13 @@ export const getDocuments = createAsyncThunk<RootDocumentsType[], void, { reject
             return rejectWithValue(errorHandlerUtil(err));
         }
     })
+
+export const submitItemsIds = createAsyncThunk<{messages: string}, string[], { rejectValue: string } >(
+  'dataTable/submitItemsIds', async (params, {rejectWithValue}) => {
+    try {
+      const res = await productsAPI.setCancel(params)
+      return res.data
+    } catch (err) {
+      return rejectWithValue(errorHandlerUtil(err));
+    }
+  })

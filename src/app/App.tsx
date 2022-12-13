@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-        <DataTable/>
+      <DataTable/>
     </div>
   );
 }

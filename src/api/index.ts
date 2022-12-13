@@ -11,7 +11,7 @@ export const productsAPI = {
     getSecondDocuments() {
         return instance.get<RootDocumentsType>('documents2')
     },
-    setCancel(arrID: number[]) {
+    setCancel(arrID: string[]) {
         return instance.post<number[], AxiosResponse<{messages: string}>>('cancel', {id: arrID})
     },
 }

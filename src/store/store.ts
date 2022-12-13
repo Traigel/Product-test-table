@@ -1,9 +1,8 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {dataTableReducer} from '../features/DataTable/dataTable-reducer';
 
-
 const rootReducer = combineReducers({
-    dataTable: dataTableReducer
+  dataTable: dataTableReducer
 })
 
 export const store = configureStore({reducer: rootReducer})
