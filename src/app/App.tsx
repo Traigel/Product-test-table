@@ -1,21 +1,12 @@
 import React from 'react';
 import styles from './App..module.scss'
-import {productsAPI} from '../api';
-import {useAppDispatch} from '../common/hooks/useAppDispatch';
-import {getDocuments} from '../features/DataTable/dataTable-actions';
+import {DataTable} from '../features/DataTable/DataTable';
 
 function App() {
 
-    const dispatch = useAppDispatch()
-
-    const onClickHandler = () => {
-        dispatch(getDocuments())
-    }
-
   return (
     <div className={styles.app}>
-        <button onClick={onClickHandler}>qweqwe</button>
-      app
+        <DataTable/>
     </div>
   );
 }

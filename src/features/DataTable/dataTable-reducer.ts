@@ -4,7 +4,7 @@ import {getDocuments} from './dataTable-actions';
 
 const initialState = {
     status: 'idle' as RequestStatusType,
-    error: {message: undefined} as ErrorType,
+    error: undefined as string | undefined,
     data: null as DataType[] | null
 
 }
@@ -21,18 +21,19 @@ const slice = createSlice({
             .addCase(getDocuments.fulfilled, (state, action) => {
                 state.data = action.payload.map(el => ({
                     id: el[0],
+                    name: el[5],
                     status: el[1],
+                    volume: el[4],
                     sum: el[2],
                     qty: el[3],
-                    volume: el[4],
-                    name: el[5],
                     deliveryDate: el[6],
-                    currency: el[7]
+                    currency: el[7],
+                    total: `${el[2] * el[3]} ${el[7]}`
                 }))
                 state.status = 'idle'
             })
             .addCase(getDocuments.rejected, (state, action) => {
-                state.error.message = action.payload
+                state.error = action.payload
                 state.status = 'idle'
             })
     }
@@ -41,7 +42,7 @@ const slice = createSlice({
 export const dataTableReducer = slice.reducer
 
 // Types
-type DataType = {
+export type DataType = {
     id: string,
     status: StatusType,
     sum: number,
@@ -49,9 +50,8 @@ type DataType = {
     volume: number,
     name: string,
     deliveryDate: string,
-    currency: string
+    currency: string,
+    total: string
 }
 
 export type RequestStatusType = 'idle' | 'loading'
-
-export type ErrorType = { message: string | undefined }

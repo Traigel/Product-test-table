@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 
 export const instance = axios.create({
-    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : 'http://lonk',
+    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : 'https://data-server-production-604e.up.railway.app',
 })
 
 export const productsAPI = {
